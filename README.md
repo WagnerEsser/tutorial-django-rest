@@ -15,3 +15,6 @@ Tutorial feito com objetivo de aprendizado profissional
 * A classe *SnippetSerializer* em *serializers.py* comporta-se como um *Form* no Django.
     * `{'base_template': 'textarea.html'}` é equivalente à `widget=widgets.Textarea`.
 
+* Para testar, utilizar CURL ou HTTPIE ou Browser.
+    * HTTPI: instalar com `pip install httpie`, e então testar com `http http://127.0.0.1:8000/snippets/`.
+    * Para CURL: testar com `curl -H 'Accept: application/json; indent=4' http http://127.0.0.1:8000/snippets/`.
