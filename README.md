@@ -10,11 +10,34 @@ Tutorial feito com objetivo de aprendizado profissional
 ---
 # Anotações do Tutorial
 
-> *Serialização:* Em ciência da computação, no contexto de armazenamento e transmissão de dados, serialização é o processo de tradução de estruturas de dados ou estado de objeto em um formato que possa ser armazenado (por exemplo, em um arquivo ou buffer de memória, ou transmitido por meio de um enlace de conexão de rede) e reconstruído posteriormente no mesmo ou em outro ambiente computacional. [[Wikipédia](https://pt.wikipedia.org/wiki/Serializa%C3%A7%C3%A3o)].
+> **Serialização:** Em ciência da computação, no contexto de armazenamento e transmissão de dados, serialização é o processo de tradução de estruturas de dados ou estado de objeto em um formato que possa ser armazenado (por exemplo, em um arquivo ou buffer de memória, ou transmitido por meio de um enlace de conexão de rede) e reconstruído posteriormente no mesmo ou em outro ambiente computacional. [[Wikipédia](https://pt.wikipedia.org/wiki/Serializa%C3%A7%C3%A3o)].
 
-* A classe *SnippetSerializer* em *serializers.py* comporta-se como um *Form* no Django.
-    * `{'base_template': 'textarea.html'}` é equivalente à `widget=widgets.Textarea`.
+###### A classe *SnippetSerializer* em *serializers.py* comporta-se como um *Form* no Django.
 
-* Para testar, utilizar CURL ou HTTPIE ou Browser.
-    * HTTPIE: instalar com `pip install httpie`, e então testar com `http http://127.0.0.1:8000/snippets/`.
-    * Para CURL: testar com `curl -H 'Accept: application/json; indent=4' http http://127.0.0.1:8000/snippets/`.
+`{'base_template': 'textarea.html'}` é equivalente à `widget=widgets.Textarea`.
+
+###### Para testar, utilizar CURL ou HTTPIE ou Browser.
+**HTTPIE:**
+
+`pip install httpie`
+
+Testar com:
+```
+http http://127.0.0.1:8000/snippets/ -a username
+http http://127.0.0.1:8000/snippets/ Accept:application/json -a username
+http http://127.0.0.1:8000/snippets/ Accept:text/html -a username
+```
+
+**CURL:**
+
+Testar com:
+```
+curl -H 'Accept: application/json; indent=4' http http://127.0.0.1:8000/snippets/ -u username:senha
+curl -H 'Accept: text/html; indent=4' http http://127.0.0.1:8000/snippets/ -u username:senha
+```
+
+Pode-se também alterar o cabeçalho `Content-type`:
+
+```
+http --form POST http://127.0.0.1:8000/snippets/ code="print 123" -a admin
+```
