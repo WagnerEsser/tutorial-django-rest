@@ -39,5 +39,5 @@ curl -H 'Accept: text/html; indent=4' http http://127.0.0.1:8000/snippets/ -u us
 Pode-se também alterar o cabeçalho `Content-type`:
 
 ```
-http --form POST http://127.0.0.1:8000/snippets/ code="print 123" -a admin
+http --form POST http://127.0.0.1:8000/snippets/ code="print 123" -a username
 ```
